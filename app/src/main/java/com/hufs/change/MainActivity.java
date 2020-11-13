@@ -1,17 +1,20 @@
-package com.hufs.layout;
+package com.hufs.change;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.PagerSnapHelper;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.hufs.change.R;
+
+import com.hufs.change.FirstFragment;
+import com.hufs.change.SecondFragment;
+import com.hufs.change.ThirdFragment;
+
 import me.relex.circleindicator.CircleIndicator;
-import me.relex.circleindicator.CircleIndicator2;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super (fragmentManager);
         }
-
-
         @Override
         public int getCount(){
             return NUM_ITEMS;

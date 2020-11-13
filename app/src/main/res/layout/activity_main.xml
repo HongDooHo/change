@@ -9,18 +9,27 @@
         android:id="@+id/vpPager"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#3F51B5" />
+        android:background="#C23433" />
 
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/indicator"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_alignBottom="@+id/vpPager"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="0dp"
         app:ci_drawable="@drawable/black_radius"
         app:ci_height="7dp"
         app:ci_margin="0dp"
         app:ci_width="50dp" />
+
+
+    <fragment
+        android:id="@+id/map"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="312dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp" />
 
 </RelativeLayout>

@@ -7,12 +7,11 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.hufs.layout"
+        applicationId "com.hufs.change"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,6 +27,12 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
@@ -37,6 +42,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'me.relex:circleindicator:2.1.4'
+
+    implementation 'com.github.pedroSG94:AutoPermissions:1.0.3'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
+
 
 
 //    def nav_version = "2.3.1"

@@ -1,4 +1,4 @@
-package com.hufs.layout;
+package com.hufs.change;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,14 +8,16 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
-public class FirstFragment extends Fragment {
+import com.hufs.change.R;
+
+public class SecondFragment extends Fragment {
 
     private String title;
     private int page;
 
 
-    public static FirstFragment newInstance(int page, String title){
-        FirstFragment fragment = new FirstFragment();
+    public static SecondFragment newInstance(int page, String title){
+        SecondFragment fragment = new SecondFragment();
         Bundle args = new Bundle();
         args.putInt("someInt", page);
         args.putString("someTitle", title);
