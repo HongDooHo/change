@@ -30,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
         session = Session.getCurrentSession();
         session.addCallback(sessionCallback);
+
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

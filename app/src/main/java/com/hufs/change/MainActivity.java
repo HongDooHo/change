@@ -60,8 +60,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-/*        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);*/
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
