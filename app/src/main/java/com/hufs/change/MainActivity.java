@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
@@ -27,6 +28,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pedro.library.AutoPermissions;
@@ -59,9 +61,6 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -76,6 +75,22 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
+
+                // style
+                try {
+                    // Customise the styling of the base map using a JSON object defined
+                    // in a raw resource file.
+                    boolean success = googleMap.setMapStyle(
+                            MapStyleOptions.loadRawResourceStyle(
+                                    MainActivity.this, R.raw.style_json));
+                    if (!success) {
+                        Log.e("MapActivity", "Style parsing failed.");
+                    }
+                } catch (Resources.NotFoundException e) {
+                    Log.e("MapActivity", "Can't find style. Error: ", e);
+                }
+
+
                 map = googleMap;
                 startLocationService();
                 try {
@@ -108,8 +123,6 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
 
         AutoPermissions.Companion.loadAllPermissions(this, 100);
 
@@ -155,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         currentMarker = map.addMarker(markerOptions);
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 15);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 10);
         map.moveCamera(cameraUpdate);
     }
 
