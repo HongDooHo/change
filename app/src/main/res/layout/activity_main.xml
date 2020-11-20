@@ -1,81 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vpPager"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#C23433" />
+        android:layout_height="0px"
 
-    <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_alignBottom="@+id/vpPager"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="0dp"
-        app:ci_drawable="@drawable/black_radius"
-        app:ci_height="7dp"
-        app:ci_margin="0dp"
-        app:ci_width="50dp" />
+        android:layout_weight="2"
+        >
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C23433"
+            android:layout_gravity="bottom"
+            />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/vpPager"
+            android:layout_gravity="bottom"
+            app:ci_drawable="@drawable/black_radius"
+            android:layout_marginLeft="20px"
+            app:ci_height="7dp"
+            app:ci_margin="0dp"
+            app:ci_width="50dp" />
+    </FrameLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        >
+
+        <!--<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flower"
+            android:gravity="left"
+            android:layout_marginRight="15dp"
+            />-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="#D6D6D6"
+                android:textStyle="bold"
+                android:text="10/1 20:00 기준"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#707070"
+                android:text="지금까지 모인 금액"/>
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#DB4C3F"
+                android:textSize="40dp"
+                android:text="697,450원"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#C23433"
+                android:text="기부하러가기"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <fragment
         android:id="@+id/map"
-        class="com.google.android.gms.maps.SupportMapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="312dp"
+        android:layout_height="0px"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginBottom="0dp"
+        android:layout_weight="3"
+        />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="176dp"
-        android:layout_height="38dp"
-        android:layout_above="@+id/map"
-        android:layout_below="@+id/vpPager"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="94dp"
-        android:layout_marginBottom="132dp"
-        android:text="지금까지 모인 금액"
-        android:textSize="21"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="187dp"
-        android:layout_height="74dp"
-        android:layout_below="@+id/vpPager"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginBottom="367dp"
-        android:ems="10"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="126dp"
-        android:layout_height="37dp"
-        android:layout_below="@+id/vpPager"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="145dp"
-        android:layout_marginBottom="500dp"
-        android:ems="10"
-        android:inputType="date" />
-
-</RelativeLayout>
+</LinearLayout>
