@@ -6,32 +6,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vpPager"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:background="#C23433"
         android:layout_weight="2"
-        />
+        >
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpPager"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#C23433"
+            />
 
-    <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_alignBottom="@+id/vpPager"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="0dp"
-        app:ci_drawable="@drawable/black_radius"
-        app:ci_height="7dp"
-        app:ci_margin="0dp"
-        app:ci_width="50dp" />
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/vpPager"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            app:ci_drawable="@drawable/black_radius"
+            app:ci_height="7dp"
+            app:ci_margin="0dp"
+            app:ci_width="50dp" />
+    </FrameLayout>
+
 
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="vertical"
-
         >
 
 

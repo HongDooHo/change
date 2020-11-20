@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import com.hufs.change.R;
+
+import org.w3c.dom.Text;
 
 public class FirstFragment extends Fragment {
 
@@ -35,7 +38,8 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
-        EditText tvLabel = (EditText) view.findViewById(R.id.editText);
+        TextView tvLabel = (TextView) view.findViewById(R.id.text_first);
+//        tvLabel = "필요없는 동전을 모아 CHANGE가 기부할께요.";
         return view;
     }
 }
