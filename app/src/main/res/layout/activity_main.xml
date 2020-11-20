@@ -32,4 +32,50 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="176dp"
+        android:layout_height="38dp"
+        android:layout_above="@+id/map"
+        android:layout_below="@+id/vpPager"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="132dp"
+        android:text="지금까지 모인 금액"
+        android:textSize="21"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="187dp"
+        android:layout_height="74dp"
+        android:layout_below="@+id/vpPager"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="367dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="126dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/vpPager"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="500dp"
+        android:ems="10"
+        android:inputType="date" />
+
 </RelativeLayout>
