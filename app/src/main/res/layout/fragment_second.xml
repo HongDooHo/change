@@ -27,7 +27,7 @@
             android:autoSizeTextType="uniform"
             android:textStyle="bold"
             android:autoSizeMinTextSize="5sp"
-            android:autoSizeMaxTextSize="30sp"
+            android:autoSizeMaxTextSize="25sp"
             android:autoSizeStepGranularity="5sp"
 
             android:text="소중한 기부금이 어떻게\n쓰일지 더 알고 싶다면?"
