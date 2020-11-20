@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -51,8 +52,6 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, AutoPermissionsListener {
 
-    private GoogleMap mMap;
-
     SupportMapFragment mapFragment;
     GoogleMap map;
     private Marker currentMarker = null;
@@ -71,8 +70,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(vpPager);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+
         mapFragment.getMapAsync(this);
     }
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.e("MapActivity", "Can't find style. Error: ", e);
         }
 
-        mMap = googleMap;
+        map = googleMap;
         startLocationService();
 
         try {
@@ -146,12 +146,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Bitmap b = bitmapDrawable.getBitmap();
                 Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100, 100, false);
                 markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
-
+                setDefaultLocation();
                 map.addMarker(markerOptions);
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        try {
+            MapsInitializer.initialize(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        AutoPermissions.Companion.loadAllPermissions(this, 100);
     }
 
     private String getJsonString() {
@@ -173,6 +182,27 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         return json;
+    }
+
+    private void setDefaultLocation() {
+        //디폴트 위치, Seoul
+
+        LatLng DEFAULT_LOCATION = new LatLng(37.56, 126.97);
+        String markerTitle = "위치정보 가져올 수 없음";
+        String markerSnippet = "위치 퍼미션과 GPS 활성 요부 확인하세요";
+
+        if (currentMarker != null) currentMarker.remove();
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(DEFAULT_LOCATION);
+        markerOptions.title(markerTitle);
+        markerOptions.snippet(markerSnippet);
+        markerOptions.draggable(true);
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        currentMarker = map.addMarker(markerOptions);
+
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 6);
+        map.moveCamera(cameraUpdate);
     }
 
     private void startLocationService() {
@@ -277,7 +307,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 //
 //        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//        LatLng korea = new LatLng(36, 127);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in korea"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(korea));
+
 
