@@ -10,6 +10,17 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EditText" />
+        android:text="필요없는 동전을 모아 CHANGE가 기부할께요." />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:background="@drawable/frag_first" />
+
+
+
 
 </LinearLayout>
