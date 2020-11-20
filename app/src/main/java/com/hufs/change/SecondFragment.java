@@ -40,7 +40,7 @@ public class SecondFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_second, container, false);
         TextView tvLabel = (TextView) view.findViewById(R.id.text_second);
 //        tvLabel.setText(page + " -- " + title);
         return view;
