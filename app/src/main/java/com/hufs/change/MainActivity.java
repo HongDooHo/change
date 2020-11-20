@@ -51,7 +51,6 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, AutoPermissionsListener {
 
-    private GoogleMap mMap;
 
     SupportMapFragment mapFragment;
     GoogleMap map;
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(vpPager);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.e("MapActivity", "Can't find style. Error: ", e);
         }
 
-        mMap = googleMap;
+        map = googleMap;
         startLocationService();
 
         try {
