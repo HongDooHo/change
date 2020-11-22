@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mypage"
+        android:icon="@drawable/people_24"
+        app:showAsAction="ifRoom"
+        android:title="mypage">
+    </item>
+    <item
+        android:id="@+id/camera"
+        android:icon="@drawable/photo_camera_24"
+        app:showAsAction="ifRoom|withText"
+        android:title="photo_camera_24">
+    </item>
+</menu>

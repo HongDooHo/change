@@ -6,15 +6,22 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -56,8 +63,34 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
     SupportMapFragment mapFragment;
     GoogleMap map;
     private Marker currentMarker = null;
-
     FragmentPagerAdapter adapterViewPager;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            startActivity(homeIntent);
+        }
+        if (id == R.id.mypage) {
+            Intent mypageIntent = new Intent(this, MypageActivity.class);
+            startActivity(mypageIntent);
+        }
+        if (id == R.id.camera) {
+            Intent cameraIntent = new Intent(this, CameraSubActivity.class);
+            startActivity(cameraIntent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
 
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(vpPager);
+
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -300,5 +334,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
             return "Page " + position;
         }
     }
+
+
 
 }
