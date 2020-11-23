@@ -28,8 +28,7 @@ import com.kakao.util.exception.KakaoException;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button btn_custom_login;
-    private Button btn_custom_login_out;
+
     private SessionCallback sessionCallback = new SessionCallback();
     Session session;
     @Override

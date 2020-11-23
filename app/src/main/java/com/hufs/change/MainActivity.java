@@ -12,6 +12,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -289,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
                 case 1:
                     return SecondFragment.newInstance(1, "Page # 2");
                 case 2:
-                    return  ThirdFragment.newInstance(2, "Page # 3");
+                    return ThirdFragment.newInstance(2, "Page # 3");
                 default:
                     return null;
             }
@@ -301,4 +302,14 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         }
     }
 
+    public void showWebView(View view){
+        Intent intent = new Intent(this, FirstWebViewActivity.class);
+        startActivity(intent);
+        //finish();
+    }
+    public void showWebView2(View view){
+        Intent intent = new Intent(this, SecondWebViewActivity.class);
+        startActivity(intent);
+        //finish();
+    }
 }
