@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 
 import com.hufs.change.R;
 
+import org.w3c.dom.Text;
+
 public class SecondFragment extends Fragment {
 
     private String title;
@@ -39,7 +41,8 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        TextView tvLabel = (TextView) view.findViewById(R.id.tv2);
+        TextView tvLabel = (TextView) view.findViewById(R.id.text_second);
+//        tvLabel.setText(page + " -- " + title);
         return view;
     }
 }

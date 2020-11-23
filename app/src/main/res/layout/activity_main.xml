@@ -9,79 +9,80 @@
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="0px"
-
         android:layout_weight="2"
         >
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vpPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#C23433"
-            android:layout_gravity="bottom"
-            />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C23433"
+        android:layout_gravity="bottom"
+        />
 
-        <me.relex.circleindicator.CircleIndicator
-            android:id="@+id/indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_alignBottom="@+id/vpPager"
-            android:layout_gravity="bottom"
-            app:ci_drawable="@drawable/black_radius"
-            android:layout_marginLeft="20px"
-            app:ci_height="7dp"
-            app:ci_margin="0dp"
-            app:ci_width="50dp" />
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignBottom="@+id/vpPager"
+        android:layout_gravity="bottom"
+        app:ci_drawable="@drawable/black_radius"
+        android:layout_marginLeft="20px"
+        app:ci_height="7dp"
+        app:ci_margin="0dp"
+        app:ci_width="50dp" />
     </FrameLayout>
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:gravity="center"
+        android:background="@color/white"
         >
 
-        <!--<ImageView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/flower"
             android:gravity="left"
             android:layout_marginRight="15dp"
-            />-->
+            />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="left|center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/times"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="#D6D6D6"
-                android:textStyle="bold"
-                android:text="10/1 20:00 기준"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="#707070"
-                android:text="지금까지 모인 금액"/>
-            <TextView
-                android:id="@+id/money"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#DB4C3F"
-                android:textSize="40dp"
-                android:text="697,450원"/>
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="#D6D6D6"
+            android:textStyle="bold"
+            android:text="10/1 20:00 기준"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#707070"
+            android:text="지금까지 모인 금액"/>
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#DB4C3F"
+            android:textSize="40dp"
+            android:text="697,450원"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#C23433"
                 android:text="기부하러가기"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
         </LinearLayout>
 

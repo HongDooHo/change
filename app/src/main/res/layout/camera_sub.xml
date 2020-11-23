@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp">
+
+        <ImageView
+            android:id="@+id/tag"
+            android:layout_width="125dp"
+            android:layout_height="120dp"
+            android:src="@drawable/hashtag" />
+
+        <TextView
+            android:id="@+id/textA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="#"
+            android:textSize="45dp"
+            android:layout_toLeftOf="@+id/textB"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="45dp"
+            android:layout_alignParentEnd="true"
+            android:text="change"/>
+
+        <Button
+            android:layout_toEndOf="@+id/tag"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textA"
+            android:id="@+id/instagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showWebView2"
+            android:text="instagram"/>
+        <Button
+            android:id="@+id/facebook"
+            android:layout_below="@+id/textA"
+            android:layout_toRightOf="@id/instagram"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            android:onClick="showWebView3"
+            android:text="facebook"/>
+
+    </RelativeLayout>
+
+
+    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+        android:id="@+id/rcc_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

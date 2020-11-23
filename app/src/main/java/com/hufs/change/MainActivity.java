@@ -239,9 +239,8 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15));
 
         //디폴트 위치, Seoul
-        Toast.makeText(getApplicationContext(), "실행", Toast.LENGTH_LONG).show();
         String markerTitle = "내위치";
-        String markerSnippet = "위치정보가 확인되었습니다.";
+        String markerSnippet = "위치정보는 일정주기로 업데이트됩니다.";
 
         if (currentMarker != null) currentMarker.remove();
 
@@ -309,6 +308,11 @@ public class MainActivity extends AppCompatActivity implements AutoPermissionsLi
     }
     public void showWebView2(View view){
         Intent intent = new Intent(this, SecondWebViewActivity.class);
+        startActivity(intent);
+        //finish();
+    }
+    public void showWebView3(View view){
+        Intent intent = new Intent(this, ThirdWebViewActivity.class);
         startActivity(intent);
         //finish();
     }

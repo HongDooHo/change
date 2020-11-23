@@ -5,12 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <ImageView
+        android:id="@+id/frag_first"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:background="@drawable/frag_first"
+        android:layout_gravity="bottom"
+        android:onClick="showWebView"
+        />
 
     <TextView
-        android:id="@+id/tv1"
-        android:onClick="showWebView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EditText" />
+        android:id="@+id/text_first"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left|center"
+        android:autoSizeTextType="uniform"
+        android:textStyle="bold"
+        android:autoSizeMinTextSize="5sp"
+        android:autoSizeMaxTextSize="25sp"
+        android:autoSizeStepGranularity="3sp"
+
+        android:text="필요없는 동전을 모아\nCHANGE가 기부할께요"
+        />
+
+    </FrameLayout>
 
 </LinearLayout>

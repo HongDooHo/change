@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/constraintLayout2"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:outlineAmbientShadowColor="#000000"
+    android:outlineSpotShadowColor="#515151"
+    tools:context=".MypageActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_tab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="나의 활동"
+            android:textColor="@color/purple_200" />
+
+        <Button
+            android:id="@+id/bt_tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="동전지갑"
+            android:textColor="@color/purple_200" />
+    </LinearLayout>
+
+</RelativeLayout>
